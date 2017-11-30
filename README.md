@@ -7,3 +7,6 @@ Updated version of http://dbatoastmasters.com/dba/index.html
 3. `npm install`
 4. `ng serve`
 
+Should be up on http://localhost:4200/
+
+
