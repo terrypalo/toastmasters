@@ -1,8 +1,56 @@
+<div class="container">
+
 <h2> Welcome to the Test Component (test.component.html) </h2>
-<p>
+<p id="test">
   This component works.
 </p>
+  <div class="row">
+    <div class="col-sm">
+    <h3> Members </h3>
+    <p>
+	  <button *ngIf="!user" class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#loginForm" aria-expanded="false" aria-controls="loginForm">
+	    Login
+	  </button>
 
-<p>
-	current value of val: {{val}}
-</p>
+	  <button *ngIf="user" (click)="logout()" class="btn btn-outline-primary" type="button">
+	    Logout
+	  </button>
+
+	</p>
+
+
+	<div *ngIf="!user" class="collapse" id="loginForm">
+	  <div class="form-group">
+	    <label for="inputName">First Name</label>
+	    <input #inputName type="text" class="form-control" id="inputName" aria-describedby="emailHelp" placeholder="Enter First Name">
+	    <small id="emailHelp" class="form-text text-muted"> You can also enter your Toastmaster ID, if you know it. </small>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputPass">Password</label>
+	    <input #inputPass type="password" class="form-control" id="inputPass" placeholder="Enter Password">
+	  </div>
+	  <button (click)="login(inputName.value, inputPass.value)" type="submit" class="btn btn-primary">Submit
+	  </button>
+	  <br>
+	  <br>
+	</div>
+
+    <p>
+	  <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+	    Show all Members
+	  </button>
+	</p>
+	<div class="collapse" id="collapseExample">
+      <ul class="list-group">
+		  <li *ngFor="let person of people" class="list-group-item"> {{person.Name}}</li>
+	  </ul>
+	</div>	
+
+    </div>
+    <div class="col-sm">
+   	<h2> Current Agendas </h2>
+   	<p> Test </p>
+    </div>
+  </div>
+
+</div>
