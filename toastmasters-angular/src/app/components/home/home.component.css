@@ -1,0 +1,17 @@
+.main-section {
+	padding-top: 150px; 
+	background-color: white;
+	color: #004265;
+	height: 100vh;
+}
+
+.img-fluid {
+	max-width: 40%;
+}
+
+.about-section {
+	padding-top: 150px; 
+	padding-bottom: 150px; 
+	background-color: #004265;
+	color: white;
+}

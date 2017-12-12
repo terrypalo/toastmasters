@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ToastmastersService {
-  private apiUrl = 'http://ics415.com/toastmasters/members/apis/'
+  private apiUrl = 'http://ics415.com/toastmasters/members/apis/';
 
   constructor(private http: Http) { }
 
@@ -15,8 +15,8 @@ export class ToastmastersService {
    * @return Observable with response
    */
   emailPassword(tid) {
-  	return this.http.get(this.apiUrl + 'email_pw_api.php?tid=' + tid)
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'email_pw_api.php?tid=' + tid)
+    .map((res: Response) => res.json());
   }
 
   /**
@@ -25,8 +25,8 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getNames() {
-  	return this.http.get(this.apiUrl + 'get_names_api.php')
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'get_names_api.php')
+    .map((res: Response) => res.json());
   }
 
   /**
@@ -38,13 +38,13 @@ export class ToastmastersService {
    * @return Observable with response
    */
   login(first, pw, tid?) {
-  	if (tid) {
- 		return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw)
-  		.map((res: Response) => res.json());
-  	} else {
-  		return this.http.get(this.apiUrl + 'login_api.php?first=' + first + '&pw=' + pw)
-  		.map((res: Response) => res.json());
-  	}
+    if (tid) {
+    return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw)
+      .map((res: Response) => res.json());
+    } else {
+      return this.http.get(this.apiUrl + 'login_api.php?first=' + first + '&pw=' + pw)
+      .map((res: Response) => res.json());
+    }
 
   }
 
@@ -55,8 +55,8 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getDesires() {
-	return this.http.get(this.apiUrl + 'update_desires_api.php')
-  	.map((res: Response) => res.json());
+  return this.http.get(this.apiUrl + 'update_desires_api.php')
+    .map((res: Response) => res.json());
   }
 
   /**
@@ -65,23 +65,23 @@ export class ToastmastersService {
    * @method updateDesires
    * @param duty, desire duty to update
    * @param desireOld, current desire value (for accurate sql query)
-   * @param desireNew, new desire value  
+   * @param desireNew, new desire value
    * @return Observable with response
    */
   updateDesires(duty, desireOld, desireNew) {
-  	return this.http.get(this.apiUrl + 'update_desires_api.php?duty=' + duty + '&desireOld=' + desireOld + '&desireNew=' + desireNew)
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'update_desires_api.php?duty=' + duty + '&desireOld=' + desireOld + '&desireNew=' + desireNew)
+    .map((res: Response) => res.json());
   }
 
   /**
    * Gets all the information regarding member. ex: name, password etc.
    * Member must be logged in prior to calling this function
-   * @method getMemberInfo 
+   * @method getMemberInfo
    * @return Observable with response
    */
   getMemberInfo() {
-  	return this.http.get(this.apiUrl + 'update_member_api.php')
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'update_member_api.php')
+    .map((res: Response) => res.json());
   }
 
   /**
@@ -94,28 +94,61 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateMemberInfo(field, fieldOld, fieldNew) {
-  	return this.http.get(this.apiUrl + 'update_member_api.php?field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew)
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'update_member_api.php?field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew)
+    .map((res: Response) => res.json());
   }
 
   /**
    * Logs a member out of their current session
    * Member must be logged in prior to calling this function
-   * @method logout 
+   * @method logout
    * @return Observable with response
    */
   logout() {
-  	return this.http.get(this.apiUrl + 'logout_api.php')
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'logout_api.php')
+    .map((res: Response) => res.json());
   }
 
   /**
    * Gets the current roster for toastmaster
-   * @method getRoster 
+   * @method getRoster
    * @return Observable with response
    */
   getRoster() {
-  	return this.http.get(this.apiUrl + 'roster_api.php')
-  	.map((res: Response) => res.json());
+    return this.http.get(this.apiUrl + 'roster_api.php')
+    .map((res: Response) => res.json());
+  }
+
+  /**
+   * Updates agenda given an id
+   * I dont even know what this api endpoint does
+   * @method updateAgenda
+   * @return Observable with response
+   */
+  updateAgenda(agendaId) {
+    return this.http.get(this.apiUrl + 'update_agenda_api.php?agendaId=' + agendaId)
+    .map((res: Response) => res.json());
+  }
+
+
+  updateAgenda_2(func, meetingDate, itemId, toastmaster, text) {
+    const query = '?function=' + func +
+                  '&meetingDate=' + meetingDate +
+                  '&itemId=' + itemId +
+                  '&toastmaster=' + toastmaster +
+                  '&text=' + text;
+
+    return this.http.get(this.apiUrl + 'update_agenda_api.php' + query)
+    .map((res: Response) => res.json());
+  }
+
+  updateAvailability(func, field, fieldOld, fieldNew) {
+    const query = '?function=' + func +
+              '&field=' + field +
+              '&fieldOld=' + fieldOld +
+              '&fieldNew=' + fieldNew;
+
+    return this.http.get(this.apiUrl + 'update_avail_api.php' + query)
+    .map((res: Response) => res.json());
   }
 }

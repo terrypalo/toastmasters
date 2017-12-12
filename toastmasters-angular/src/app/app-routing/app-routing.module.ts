@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from '../components/test/test.component'
+import { TestComponent } from '../components/test/test.component';
+import { HomeComponent } from '../components/home/home.component';
+
 
 const routes: Routes = [
     {
         path: 'test',
         component: TestComponent,
     },
+    {
+        path: '',
+        component: HomeComponent
+    }
 ];
 
 @NgModule({
@@ -18,4 +24,4 @@ const routes: Routes = [
     ],
     declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
