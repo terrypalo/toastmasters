@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
-import { ToastmastersService } from './services/toastmasters.service'
+import { ToastmastersService } from './services/toastmasters.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    TestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
