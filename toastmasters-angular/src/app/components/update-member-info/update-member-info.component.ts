@@ -14,25 +14,38 @@ export class UpdateMemberInfoComponent implements OnInit {
   currMemberInfo = null;
 
 
-  constructor(private tmService: ToastmastersService) {
+  constructor(private tmService: ToastmastersService) { 
     this.tmService.getMemberInfo().subscribe(
-    data => {
-      console.log(data);
-      if (data['message'].includes('Member TID not specified')) {
-        this.loggedOut = true;
-        if (localStorage.user) {
-          localStorage.removeItem('user');
+      data => {
+        if (data['message'].includes('Member TID not specified')) {
+          this.loggedOut = true;
+          if (localStorage.user) {
+            localStorage.removeItem('user');
+          }
+          this.loading = false;
+        } else {
+          console.log(data['member'])
+
+          this.oldMemberInfo = Object.assign({}, data['member']);
+          this.currMemberInfo = Object.assign({}, data['member']);
+          this.loading = false;
         }
-        this.loading = false;
-      } else {
-        this.oldMemberInfo = data['member'];
-        this.currMemberInfo = data['member'];
-        this.loading = false;
-      }
-    });
+      });
   }
 
   ngOnInit() {
+
+  }
+
+  update() {
+     for (const field in this.oldMemberInfo) {
+       const oldField = this.oldMemberInfo[field];
+       const newField = this.currMemberInfo[field];
+
+       if (oldField !== newField) {
+         this.tmService.updateMemberInfo(field, oldField, newField).subscribe();
+       }
+     }
   }
 
 }

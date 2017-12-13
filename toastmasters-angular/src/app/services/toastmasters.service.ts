@@ -94,7 +94,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateMemberInfo(field, fieldOld, fieldNew) {
-    return this.http.get(this.apiUrl + 'update_member_api.php?field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew, {withCredentials: true})
+    return this.http.get(this.apiUrl + 'update_member_api.php?function=update&field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 

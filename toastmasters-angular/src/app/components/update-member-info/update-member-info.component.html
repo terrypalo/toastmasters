@@ -64,7 +64,7 @@
     <textarea [(ngModel)]="currMemberInfo.Notes" name="Notes" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 
-  <button type="submit" class="btn btn-light">Save Changes</button>
+  <button type="submit" (click)="update()" class="btn btn-light">Save Changes</button>
 </form>
 
 <div *ngIf="!loading && loggedOut" class="text-center"> 
