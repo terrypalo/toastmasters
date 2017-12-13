@@ -14,7 +14,7 @@ export class UpdateMemberInfoComponent implements OnInit {
   currMemberInfo = null;
 
 
-  constructor(private tmService: ToastmastersService) { 
+  constructor(private tmService: ToastmastersService) {
     this.tmService.getMemberInfo().subscribe(
       data => {
         if (data['message'].includes('Member TID not specified')) {
@@ -24,8 +24,6 @@ export class UpdateMemberInfoComponent implements OnInit {
           }
           this.loading = false;
         } else {
-          console.log(data['member'])
-
           this.oldMemberInfo = Object.assign({}, data['member']);
           this.currMemberInfo = Object.assign({}, data['member']);
           this.loading = false;
