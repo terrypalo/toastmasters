@@ -1,0 +1,44 @@
+<div class="container text-center" id="about-section">
+<h1> About us </h1>
+
+<p> Downtown Business Associates Toastmasters meets from 12:15 to 1:15 PM every Wednesday at Argosy University at the American Savings Bldg, 1001 Bishop St, Suite 400, 4th Floor, Honolulu, HI, 96813 </p>
+
+<br>
+<h3> How to Join </h3>
+<p> We welcome new members! People just like you join us all the time. We generally have about 8 to 10 new members every year.</p>
+
+<p>The application process is simple.
+
+Click to download the application form.
+
+New member fees are calculated on the reverse side of the application. There is a new member fee of $20, membership dues which vary depending upon the month of your application, plus club dues of $5.
+
+Bring your completed application plus your check (if this is the form of payment) to any meeting.
+
+You will receive your new member's manual within a few weeks, and you'll be on your way!
+</p>
+<p>
+Questions? Email Debra Kohn-Lee at playinwithdeb@yahoo.com or call 808-778-6719
+</p>
+
+<br> 
+
+<h3> Our Current Members </h3>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people; let i = index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{person.Name}}</td>
+      <td>{{person.Title}}</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>

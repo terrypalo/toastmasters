@@ -7,12 +7,24 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './components/test/test.component';
 import { ToastmastersService } from './services/toastmasters.service';
 import { HomeComponent } from './components/home/home.component';
+import { UpdateMemberInfoComponent } from './components/update-member-info/update-member-info.component';
+import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
+import { UpdateDutyDesiresComponent } from './components/update-duty-desires/update-duty-desires.component';
+import { UpdateAgendaComponent } from './components/update-agenda/update-agenda.component';
+import { UpdateMembersComponent } from './components/update-members/update-members.component';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateMemberInfoComponent,
+    UpdateAvailabilityComponent,
+    UpdateDutyDesiresComponent,
+    UpdateAgendaComponent,
+    UpdateMembersComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
