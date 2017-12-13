@@ -7,10 +7,6 @@ import { AboutComponent } from '../components/about/about.component';
 
 const routes: Routes = [
     {
-        path: 'test',
-        component: TestComponent,
-    },
-    {
         path: '',
         component: HomeComponent
     },

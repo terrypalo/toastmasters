@@ -9,20 +9,17 @@ import { ToastmastersService } from './services/toastmasters.service';
 
 export class AppComponent implements OnInit {
   title = 'app';
-  people = null;
   logged_in = false;
   user = null;
 
   constructor(private tmService: ToastmastersService) {
     if (localStorage.user !== undefined) {
       this.user = JSON.parse(localStorage.user);
-      console.log(this.user);
     }
   }
 
   ngOnInit() {
-    this.tmService.getNames().subscribe(
-    data => { this.people = data['names']; });
+
   }
 
   login(first, password) {

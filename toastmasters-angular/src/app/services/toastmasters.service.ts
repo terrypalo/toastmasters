@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ToastmastersService {
-  private apiUrl = 'http://ics415.com/toastmasters/members/apis/';
+  private apiUrl = 'http://terrylp.ics415.com/toastmasters/api/';
 
   constructor(private http: Http) { }
 
@@ -15,7 +15,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   emailPassword(tid) {
-    return this.http.get(this.apiUrl + 'email_pw_api.php?tid=' + tid)
+    return this.http.get(this.apiUrl + 'email_pw_api.php?tid=' + tid, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -25,7 +25,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getNames() {
-    return this.http.get(this.apiUrl + 'get_names_api.php')
+    return this.http.get(this.apiUrl + 'get_names_api.php', {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -39,10 +39,10 @@ export class ToastmastersService {
    */
   login(first, pw, tid?) {
     if (tid) {
-    return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw)
+    return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw, {withCredentials: true})
       .map((res: Response) => res.json());
     } else {
-      return this.http.get(this.apiUrl + 'login_api.php?first=' + first + '&pw=' + pw)
+      return this.http.get(this.apiUrl + 'login_api.php?first=' + first + '&pw=' + pw, {withCredentials: true})
       .map((res: Response) => res.json());
     }
 
@@ -55,7 +55,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getDesires() {
-  return this.http.get(this.apiUrl + 'update_desires_api.php')
+  return this.http.get(this.apiUrl + 'update_desires_api.php', {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -69,7 +69,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateDesires(duty, desireOld, desireNew) {
-    return this.http.get(this.apiUrl + 'update_desires_api.php?duty=' + duty + '&desireOld=' + desireOld + '&desireNew=' + desireNew)
+    return this.http.get(this.apiUrl + 'update_desires_api.php?duty=' + duty + '&desireOld=' + desireOld + '&desireNew=' + desireNew, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -80,7 +80,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getMemberInfo() {
-    return this.http.get(this.apiUrl + 'update_member_api.php')
+    return this.http.get(this.apiUrl + 'update_member_api.php', {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -94,7 +94,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateMemberInfo(field, fieldOld, fieldNew) {
-    return this.http.get(this.apiUrl + 'update_member_api.php?field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew)
+    return this.http.get(this.apiUrl + 'update_member_api.php?function=update&field=' + field + '&fieldOld=' + fieldOld + '&fieldNew=' + fieldNew, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -105,7 +105,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   logout() {
-    return this.http.get(this.apiUrl + 'logout_api.php')
+    return this.http.get(this.apiUrl + 'logout_api.php', {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -115,7 +115,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   getRoster() {
-    return this.http.get(this.apiUrl + 'roster_api.php')
+    return this.http.get(this.apiUrl + 'roster_api.php', {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -126,7 +126,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateAgenda(agendaId) {
-    return this.http.get(this.apiUrl + 'update_agenda_api.php?agendaId=' + agendaId)
+    return this.http.get(this.apiUrl + 'update_agenda_api.php?agendaId=' + agendaId, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -138,7 +138,7 @@ export class ToastmastersService {
                   '&toastmaster=' + toastmaster +
                   '&text=' + text;
 
-    return this.http.get(this.apiUrl + 'update_agenda_api.php' + query)
+    return this.http.get(this.apiUrl + 'update_agenda_api.php' + query, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 
@@ -148,7 +148,7 @@ export class ToastmastersService {
               '&fieldOld=' + fieldOld +
               '&fieldNew=' + fieldNew;
 
-    return this.http.get(this.apiUrl + 'update_avail_api.php' + query)
+    return this.http.get(this.apiUrl + 'update_avail_api.php' + query, {withCredentials: true})
     .map((res: Response) => res.json());
   }
 }
