@@ -18,8 +18,7 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tmService.getNames().subscribe(
-    data => { this.people = data['names']; });
+
   }
 
   login(first, password) {

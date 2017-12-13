@@ -13,6 +13,7 @@ import { UpdateDutyDesiresComponent } from './components/update-duty-desires/upd
 import { UpdateAgendaComponent } from './components/update-agenda/update-agenda.component';
 import { UpdateMembersComponent } from './components/update-members/update-members.component';
 import { AboutComponent } from './components/about/about.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AboutComponent } from './components/about/about.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [ToastmastersService],
   bootstrap: [AppComponent]

@@ -13,6 +13,6 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.tmService.getNames().subscribe(
-    data => { this.people = data['names']; console.log(this.people); });
+    data => { this.people = data['names']; });
   }
 }
