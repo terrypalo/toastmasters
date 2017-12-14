@@ -4,6 +4,7 @@ import { TestComponent } from '../components/test/test.component';
 import { HomeComponent } from '../components/home/home.component';
 import { UpdateMemberInfoComponent } from '../components/update-member-info/update-member-info.component';
 import { AboutComponent } from '../components/about/about.component';
+import { UpdateDutyDesiresComponent } from '../components/update-duty-desires/update-duty-desires.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'about-us',
         component: AboutComponent
+    }
+    {
+        path: 'update-duty-desires',
+        component: UpdateDutyDesiresComponent;
     }
 ];
 

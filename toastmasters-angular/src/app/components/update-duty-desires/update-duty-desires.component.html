@@ -1,3 +1,144 @@
-<p>
-  update-duty-desires works!
+<div class="container text-center" id="duty-desires">
+
+<div *ngIf="!loading && loggedOut" class="text-center"> 
+<p> You must be logged in to view this page </p>
+<p> If you are logged in, then relog in. </p>
+</div>
+
+<div *ngIf="!loading && !loggedOut">
+<h2> Update Duty Desires </h2>
+<br>
+<b> Select your scheduling preference for each duty below. </b>
+
+<p> 
+If you select 'Normally' then the scheduling program is free to assign
+you that particular duty as needed. You will never be assigned a duty
+you must prepare for two weeks in a row. You will never be assigned
+the same duty more often than 3, 4, or 5 weeks apart (depending on
+the duty).
 </p>
+<p>
+If you select 'Only if absolutely necessary' then you will only be
+assigned if no one else who selected 'Normally' is available.
+</p>
+
+<p> If you select 'Never' then you will never be assigned that duty. </p>
+</div>
+
+<form class="text-left" *ngIf="!loading && !loggedOut">
+    <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Speaker</label>
+      <div class="col-sm-5">
+      <select name="speaker" [(ngModel)]="currDesires.Speaker" [(value)]="currDesires.Speaker" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+      </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Toastmaster</label>
+      <div class="col-sm-5">
+      <select name="toastmaster" [(ngModel)]="currDesires.Toastmaster" [(value)]="currDesires.Toastmaster" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Table Topics Master</label>
+      <div class="col-sm-5">
+      <select name="table-topics-master" [(ngModel)]="currDesires['Table Topics Master']" [(value)]="currDesires['Table Topics Master']" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Inspiration </label>
+      <div class="col-sm-5">
+      <select name="inspiration" [(ngModel)]="currDesires.Inspiration" [(value)]="currDesires.Inspiration" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Jokemaster</label>
+      <div class="col-sm-5">
+      <select name="jokemaster" [(ngModel)]="currDesires.Jokemaster" [(value)]="currDesires.Jokemaster" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Grammarian</label>
+      <div class="col-sm-5">
+      <select name="grammarian" [(ngModel)]="currDesires.Grammarian" [(value)]="currDesires.Grammarian" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Evaluator</label>
+      <div class="col-sm-5">
+      <select name="evaluator" [(ngModel)]="currDesires.Evaluator" [(value)]="currDesires.Evaluator" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+      <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">General Evaluator</label>
+      <div class="col-sm-5">
+      <select name="general-evaluator" [(ngModel)]="currDesires['General Evaluator']" [(value)]="currDesires['General Evaluator']" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+      <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">AH-Counter</label>
+      <div class="col-sm-5">
+      <select name="ah-counter" [(ngModel)]="currDesires['Ah-Counter']" [(value)]="currDesires['Ah-Counter']" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+
+        <div class="form-group row">
+      <label for="speaker" class="col-sm-3 offset-sm-2 col-form-label">Timer</label>
+      <div class="col-sm-5">
+      <select name="timer" [(ngModel)]="currDesires.Timer" [(value)]="currDesires.Timer" id="speaker" class="form-control">
+        <option value="1"> Normally </option>
+        <option value="2"> Only if absolutely Necessary </option>
+        <option value="3"> Never </option>
+      </select>
+  </div>
+    </div>
+    <br>
+   <div class="col-sm-6 offset-sm-5 col-form-label">
+  <button type="submit" (click)="update()" class="btn btn-light">Save Changes</button>
+	</div>
+</form>
+
+</div>
