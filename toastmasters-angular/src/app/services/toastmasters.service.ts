@@ -48,14 +48,6 @@ export class ToastmastersService {
 
   }
 
-    /*
-      To log into the other api
-    */
-  loginother() {
-      return this.http.get('http://ics415.com/toastmasters/members/apis/login_api.php?first=Bhawna&pw=pw_BM1', { withCredentials: true })
-          .map((res: Response) => res.json());
-  }
-
   /**
    * Gets all the duty desires for a particular member
    * Member must be logged in prior to calling this function
@@ -134,7 +126,7 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateAgenda(agendaId) {
-      return this.http.get('http://ics415.com/toastmasters/members/apis/update_agenda2_api.php?meetingDate=' + agendaId, {withCredentials: true})
+      return this.http.get(this.apiUrl + 'update_agenda2_api.php?meetingDate=' + agendaId, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 
@@ -147,8 +139,8 @@ export class ToastmastersService {
                   '&toastmaster=' + toastmaster +
                   '&text=' + text;
       
-     // const query = '?function=update&meetingDate=20171025&itemId=1&toastmaster=1&text=Location';
-    return this.http.get('http://ics415.com/toastmasters/members/apis/update_agenda2_api.php' + query, {withCredentials: true})
+    // const query = '?function=update&meetingDate=20171025&itemId=1&toastmaster=1&text=Location';
+    return this.http.get(this.apiUrl + 'update_agenda2_api.php' + query, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 

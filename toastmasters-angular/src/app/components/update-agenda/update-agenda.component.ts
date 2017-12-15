@@ -80,7 +80,6 @@ export class UpdateAgendaComponent implements OnInit {
     }
     
   update() {
-      this.tmService.loginother();
       this.oldAgendaInfo.forEach((item, index) => { 
           const oldField = this.oldAgendaInfo[index];
           const newField = this.currAgendaInfo[index].text;
