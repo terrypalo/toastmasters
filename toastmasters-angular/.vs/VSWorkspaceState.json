@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\app-routing",
+    "\\src\\app\\components",
+    "\\src\\app\\components\\about",
+    "\\src\\app\\components\\select-agenda",
+    "\\src\\app\\components\\update-agenda",
+    "\\src\\app\\components\\update-member-info",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\components\\update-member-info\\update-member-info.component.ts",
+  "PreviewInSolutionExplorer": false
+}
