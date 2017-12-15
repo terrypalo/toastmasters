@@ -48,14 +48,6 @@ export class ToastmastersService {
 
   }
 
-    /*
-      To log into the other api
-    */
-  loginother() {
-      return this.http.get('http://ics415.com/toastmasters/members/apis/login_api.php?first=Bhawna&pw=pw_BM1', { withCredentials: true })
-          .map((res: Response) => res.json());
-  }
-
   /**
    * Gets all the duty desires for a particular member
    * Member must be logged in prior to calling this function
