@@ -39,8 +39,8 @@ export class ToastmastersService {
    */
   login(first, pw, tid?) {
     if (tid) {
-    return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw, {withCredentials: true})
-      .map((res: Response) => res.json());
+        return this.http.get(this.apiUrl + 'login_api.php?tid=' + tid + '&pw=' + pw, { withCredentials: true })
+            .map((res: Response) => res.json());
     } else {
       return this.http.get(this.apiUrl + 'login_api.php?first=' + first + '&pw=' + pw, {withCredentials: true})
       .map((res: Response) => res.json());
@@ -126,19 +126,21 @@ export class ToastmastersService {
    * @return Observable with response
    */
   updateAgenda(agendaId) {
-    return this.http.get(this.apiUrl + 'update_agenda_api.php?agendaId=' + agendaId, {withCredentials: true})
+      return this.http.get(this.apiUrl + 'update_agenda2_api.php?meetingDate=' + agendaId, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 
 
   updateAgenda_2(func, meetingDate, itemId, toastmaster, text) {
+      
     const query = '?function=' + func +
                   '&meetingDate=' + meetingDate +
                   '&itemId=' + itemId +
                   '&toastmaster=' + toastmaster +
                   '&text=' + text;
-
-    return this.http.get(this.apiUrl + 'update_agenda_api.php' + query, {withCredentials: true})
+      
+    // const query = '?function=update&meetingDate=20171025&itemId=1&toastmaster=1&text=Location';
+    return this.http.get(this.apiUrl + 'update_agenda2_api.php' + query, { withCredentials: true })
     .map((res: Response) => res.json());
   }
 

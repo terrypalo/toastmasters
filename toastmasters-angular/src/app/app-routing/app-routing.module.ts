@@ -4,8 +4,12 @@ import { TestComponent } from '../components/test/test.component';
 import { HomeComponent } from '../components/home/home.component';
 import { UpdateMemberInfoComponent } from '../components/update-member-info/update-member-info.component';
 import { AboutComponent } from '../components/about/about.component';
+
+import { UpdateAvailabilityComponent } from '../components/update-availability/update-availability.component';
 import { UpdateDutyDesiresComponent } from '../components/update-duty-desires/update-duty-desires.component';
-import { ForgotPasswordComponent } from '../components/forgot-password/forgot-password.component';
+import { UpdateAgendaComponent } from '../components/update-agenda/update-agenda.component';
+import { SelectAgendaComponent } from '../components/select-agenda/select-agenda.component';
+import { UpdateMembersComponent } from '../components/update-members/update-members.component';
 
 const routes: Routes = [
     {
@@ -25,9 +29,24 @@ const routes: Routes = [
         component: UpdateDutyDesiresComponent
     },
     {
-        path: 'forgot-password',
-        component: ForgotPasswordComponent
+        path: 'update-availability',
+        component: UpdateAvailabilityComponent
+    },
+    {
+        path: 'modify-agenda',
+        component: UpdateAgendaComponent
+    },
+
+    {
+        path: 'select-agenda',
+        component: SelectAgendaComponent
+    },
+
+    {
+        path: 'maintain-members',
+        component: UpdateMembersComponent
     }
+
 ];
 
 @NgModule({

@@ -1,3 +1,242 @@
-<p>
-  update-agenda works!
-</p>
+
+<div class="container text-center" id="update-agenda-form">
+  <form *ngIf="!loading">
+    <H3 ALIGN=CENTER>
+      <FONT FACE="Arial,Helvetica">
+        <FONT COLOR="#333366">
+          Modify the {{meetingDate}} Agenda
+        </FONT>
+      </FONT>
+    </H3>
+
+    <p>
+      Please use exact names so the scheduling program works properly.
+          <!--
+    </p>
+    
+      <p>        Now: {{now}}</p>
+    <p>Then: {{then}}</p>
+    <button type="submit" (click)="test()" class="btn btn-light">Test</button>
+    <button type="submit" (click)="test2()" class="btn btn-light">Test2</button>
+    <p>Meeting Date: {{meetingDate}}</p>
+    <p>Item:  {{currAgendaInfo[0].ITEM}}</p>
+    <p>Test: {{testval}} and {{testval2}}</p>
+
+    <input [(ngModel)]="currAgendaInfo[0].ITEM" name="Location" id="location" class="form-control" SIZE=50 placeholder="Local">
+
+        <!--<input [(ngModel)]="currAgendaInfo[0].ITEM" name="Name" type="text" class="form-control" id="inputName4" placeholder="Name">
+
+
+    <p>Test is {{currAgendaInfo[0].text}}</p>
+    -->
+    <TABLE BORDER=1 CELLPADDING=5 ALIGN=CENTER>
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Location&nbsp;</FONT></FONT></DT>
+        </TD>
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[0].text" name="Location" class="form-control" id="inputLoc" SIZE=50 placeholder="Location">
+          </DT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD>
+          <DT>
+            <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Presiding Officer</FONT></FONT>
+          </DT>
+
+        </TD>
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[1].text" name="Presiding Officer" class="form-control" id="inputPres" SIZE=30 placeholder="Presiding Officer">
+          </DT>
+        </TD>
+      </TR>
+ 
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Toastmaster</FONT></FONT></DT>
+
+            
+            <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Theme</FONT></FONT></DT>
+            
+
+        </TD>
+        <TD>
+          
+            <input [(ngModel)]="currAgendaInfo[2].text" name="Toastmaster" class="form-control" id="inputToast" SIZE=30 placeholder="Toastmaster of the Day">             <FONT COLOR="#333366">
+                </FONT>
+            <input [(ngModel)]="currAgendaInfo[3].text" name="Meeting Theme" class="form-control" id="inputTheme" SIZE=50 placeholder ="Theme">
+          
+        </TD>
+      </TR>
+                           
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Inspiration&nbsp;</FONT></FONT></DT>
+        </TD>
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[4].text" name="Inspiration"class="form-control" id="inputInspiration" SIZE=30 placeholder="inspiration">
+          </DT>
+        </TD>
+      </TR>
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Jokemaster&nbsp;</FONT></FONT></DT>
+        </TD>
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[5].text" name="Jokemaster" class="form-control" id="inputJokemaster"SIZE=30 placeholder="Jokemaster">
+          </DT>
+        </TD>
+      </TR>
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Grammarian</FONT></FONT></DT>
+        </TD>
+
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[6].text" name="Grammarian" class="form-control" id="inputGrammarian" SIZE=30 placeholder="Grammarian">
+          </DT>
+        </TD>
+      </TR>
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Word-of-the-day</FONT></FONT></DT>
+        </TD>
+
+        <TD>
+          <DT><input [(ngModel)]="currAgendaInfo[7].text" name="Ah-Counter" class="form-control" id="inputAhCounter" SIZE=30 placeholder=" Ah counter"></DT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Timer&nbsp;</FONT></FONT></DT>
+        </TD>
+
+        <TD>
+          <DT><input [(ngModel)]="currAgendaInfo[8].text" name="Timer" class="form-control" id="inputTimer"SIZE=30 placeholder="Timer"></DT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 1</FONT></FONT></DT><br/>
+            <DT>
+              <FONT FACE="Arial,Helvetica">
+                <FONT COLOR="#333366">
+                  Title&nbsp;<BR><br/>
+                  Other Info
+                </FONT>
+              </FONT>
+            </DT>
+        </TD>
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[9].text" name="Speaker 1" class="form-control" id="inputSpeaker1" SIZE=30 placeholder="Speaker1">
+            <input [(ngModel)]="currAgendaInfo[10].text" name="Title of Speach 1" class="form-control" id="inputTitle1" SIZE=50 placeholder="Title1">
+            <input [(ngModel)]="currAgendaInfo[11].text" name="Description of Speach 1" class="form-control" id="inputDescription1"SIZE=50 placeholder="Description of Title1">
+          </DT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 2</FONT></FONT></DT><br />
+
+            <DT>
+              <FONT FACE="Arial,Helvetica">
+                <FONT COLOR="#333366">
+                  Title&nbsp;<BR><br />
+                  Other Info
+                </FONT>
+              </FONT>
+            </DT>
+        </TD>
+
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[12].text" name="Speaker 2" class="form-control" id="inputSpeaker2" SIZE=30 placeholder="Speaker2">
+            <input [(ngModel)]="currAgendaInfo[13].text" name="Title of Speach 2" class="form-control" id="inputTitle2" SIZE=50 placeholder="Title2">
+            <input [(ngModel)]="currAgendaInfo[14].text" name="Description of Speach 2" class="form-control" id="inputDescription2" SIZE=50 placeholder="Description of Title2">
+          </DT>
+        </TD>
+      </TR>
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 3</FONT></FONT></DT><br />
+
+
+            <DT>
+              <FONT FACE="Arial,Helvetica">
+                <FONT COLOR="#333366">
+                  Title&nbsp;<BR><br />
+                  Other Info
+                </FONT>
+              </FONT>
+            </DT>
+
+        </TD>
+
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[15].text" name="Speaker 3" class="form-control" id="inputSpeaker3" SIZE=30 placeholder="Speaker3">
+            <input [(ngModel)]="currAgendaInfo[16].text" name="Title of Speach 3" class="form-control" id="inputTitle3" SIZE=50 placeholder="Title3">
+            <input [(ngModel)]="currAgendaInfo[17].text" name="Description of Speach 3" class="form-control" id="inputDescription3" SIZE=50 placeholder="Description of Title3">
+
+          </DT>
+        </TD>
+      </TR>
+
+
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Evaluators</FONT></FONT></DT>
+        </TD>
+
+        <TD>
+          <DT>
+            <input [(ngModel)]="currAgendaInfo[19].text" name="Evaluator 1"class="form-control" id="inputEval1" SIZE=30 placeholder="Eval1">
+            <input [(ngModel)]="currAgendaInfo[20].text" name="Evaluator 2" class="form-control" id="inputEval2" SIZE=30 placeholder="Eval2">
+            <input [(ngModel)]="currAgendaInfo[21].text" name="Evaluator 3" class="form-control" id="inputEval3" SIZE=30 placeholder="Eval3">
+          </DT>
+        </TD>
+      </TR>
+
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Table Topics Master</FONT></FONT></DT>
+        </TD>
+
+        <TD>
+          <DT><input [(ngModel)]="currAgendaInfo[18].text" name="Table Topics Master" class="form-control" id="inputTableTopicMaster"SIZE=30 placeholder="Table Topic Master"></DT>
+        </TD>
+      </TR>
+                              
+      <TR>
+        <TD>
+          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">General Evaluator</FONT></FONT></DT>
+        </TD>
+        <TD>
+          <input [(ngModel)]="currAgendaInfo[22].text" name="General Evaluator" class="form-control" id="inputGenEval" SIZE=30 placeholder="Gen Eval">
+        </TD>
+      </TR>
+                                   <!-- -->
+    </TABLE>
+
+
+
+
+
+    <button type="submit" (click)="update()" class="btn btn-light">Update Agenda</button>
+
+  </form>
+
+</div>
