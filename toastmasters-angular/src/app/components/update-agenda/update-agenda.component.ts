@@ -84,15 +84,15 @@ export class UpdateAgendaComponent implements OnInit {
       this.oldAgendaInfo.forEach((item, index) => { 
           const oldField = this.oldAgendaInfo[index];
           const newField = this.currAgendaInfo[index].text;
-          //console.log(this.oldAgendaInfo[index] + " and " + newField);
+          console.log(this.oldAgendaInfo[index] + " and " + newField);
           if (oldField !== newField) {
               this.tmService.updateAgenda_2('insert', this.meetingDate, (index + 1), 0, newField).subscribe(
                   data => {
-                      //console.log(index +" Insert and " + data['message']);
+                      console.log(index +" Insert and " + data['message']);
                   });;
                   this.tmService.updateAgenda_2('update', this.meetingDate, (index + 1), 0, newField).subscribe(
                       data => {
-                          //console.log(index + " Update and " + data['message']);
+                          console.log(index + " Update and " + data['message']);
                       });;
           }
           });
