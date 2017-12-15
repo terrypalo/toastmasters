@@ -14,6 +14,7 @@ import { UpdateAgendaComponent } from './components/update-agenda/update-agenda.
 import { UpdateMembersComponent } from './components/update-members/update-members.component';
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     UpdateDutyDesiresComponent,
     UpdateAgendaComponent,
     UpdateMembersComponent,
-    AboutComponent
+    AboutComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
