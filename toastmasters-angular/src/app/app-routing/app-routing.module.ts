@@ -18,10 +18,10 @@ const routes: Routes = [
     {
         path: 'about-us',
         component: AboutComponent
-    }
+    },
     {
         path: 'update-duty-desires',
-        component: UpdateDutyDesiresComponent;
+        component: UpdateDutyDesiresComponent
     }
 ];
 
