@@ -8,32 +8,14 @@
         </FONT>
       </FONT>
     </H3>
-
-    <p>
-      Please use exact names so the scheduling program works properly.
-          <!--
-    </p>
-    
-      <p>        Now: {{now}}</p>
-    <p>Then: {{then}}</p>
-    <button type="submit" (click)="test()" class="btn btn-light">Test</button>
-    <button type="submit" (click)="test2()" class="btn btn-light">Test2</button>
-    <p>Meeting Date: {{meetingDate}}</p>
-    <p>Item:  {{currAgendaInfo[0].ITEM}}</p>
-    <p>Test: {{testval}} and {{testval2}}</p>
-
-    <input [(ngModel)]="currAgendaInfo[0].ITEM" name="Location" id="location" class="form-control" SIZE=50 placeholder="Local">
-
-        <!--<input [(ngModel)]="currAgendaInfo[0].ITEM" name="Name" type="text" class="form-control" id="inputName4" placeholder="Name">
-
-
-    <p>Test is {{currAgendaInfo[0].text}}</p>
-    -->
-    <TABLE BORDER=1 CELLPADDING=5 ALIGN=CENTER>
+    <TABLE class="table table-bordered">
 
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Location&nbsp;</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Location&nbsp;</FONT></FONT>
+</div>
+</DT>
         </TD>
         <TD>
           <DT>
@@ -44,9 +26,10 @@
 
       <TR>
         <TD>
-          <DT>
-            <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Presiding Officer</FONT></FONT>
-          </DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Presiding Officer</FONT></FONT>
+            </div>
+</DT>
 
         </TD>
         <TD>
@@ -58,25 +41,31 @@
  
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Toastmaster</FONT></FONT></DT>
-
-            
-            <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Theme</FONT></FONT></DT>
-            
-
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Toastmaster</FONT></FONT>
+</div></DT>
         </TD>
-        <TD>
-          
-            <input [(ngModel)]="currAgendaInfo[2].text" name="Toastmaster" class="form-control" id="inputToast" SIZE=30 placeholder="Toastmaster of the Day">             <FONT COLOR="#333366">
-                </FONT>
-            <input [(ngModel)]="currAgendaInfo[3].text" name="Meeting Theme" class="form-control" id="inputTheme" SIZE=50 placeholder ="Theme">
-          
+        <TD>          
+            <input [(ngModel)]="currAgendaInfo[2].text" name="Toastmaster" class="form-control" id="inputToast" SIZE=30 placeholder="Toastmaster of the Day">        
         </TD>
       </TR>
-                           
+      <tr>
+        <td>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Theme</FONT></FONT>
+</div>
+</DT>
+        </td>
+        <td>
+          <input [(ngModel)]="currAgendaInfo[3].text" name="Meeting Theme" class="form-control" id="inputTheme" SIZE=50 placeholder="Theme">
+        </td>
+      </tr>
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Inspiration&nbsp;</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Inspiration&nbsp;</FONT></FONT>
+</div>
+</DT>
         </TD>
         <TD>
           <DT>
@@ -86,7 +75,10 @@
       </TR>
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Jokemaster&nbsp;</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Jokemaster&nbsp;</FONT></FONT>
+</div>
+</DT>
         </TD>
         <TD>
           <DT>
@@ -96,7 +88,10 @@
       </TR>
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Grammarian</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Grammarian</FONT></FONT>
+</div>
+</DT>
         </TD>
 
         <TD>
@@ -107,7 +102,10 @@
       </TR>
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Word-of-the-day</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Word-of-the-day</FONT></FONT>
+</div>
+</DT>
         </TD>
 
         <TD>
@@ -117,7 +115,10 @@
 
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Timer&nbsp;</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Timer&nbsp;</FONT></FONT>
+</div>
+</DT>
         </TD>
 
         <TD>
@@ -125,18 +126,14 @@
         </TD>
       </TR>
 
-      <TR>
-        <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 1</FONT></FONT></DT><br/>
-            <DT>
-              <FONT FACE="Arial,Helvetica">
-                <FONT COLOR="#333366">
-                  Title&nbsp;<BR><br/>
-                  Other Info
-                </FONT>
-              </FONT>
-            </DT>
-        </TD>
+      <tr>
+        <td>
+          <dt>
+              <div class="text-right row-spacer">Speaker 1</div>
+              <div class="text-right row-spacer">Title</div>
+              <div class="text-right row-spacer">Other Info</div>
+          </dt>
+        </td>
         <TD>
           <DT>
             <input [(ngModel)]="currAgendaInfo[9].text" name="Speaker 1" class="form-control" id="inputSpeaker1" SIZE=30 placeholder="Speaker1">
@@ -144,20 +141,15 @@
             <input [(ngModel)]="currAgendaInfo[11].text" name="Description of Speach 1" class="form-control" id="inputDescription1"SIZE=50 placeholder="Description of Title1">
           </DT>
         </TD>
-      </TR>
+      </tr>
 
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 2</FONT></FONT></DT><br />
-
-            <DT>
-              <FONT FACE="Arial,Helvetica">
-                <FONT COLOR="#333366">
-                  Title&nbsp;<BR><br />
-                  Other Info
-                </FONT>
-              </FONT>
-            </DT>
+          <dt>
+            <div class="text-right row-spacer">Speaker 2</div>
+            <div class="text-right row-spacer">Title</div>
+            <div class="text-right row-spacer">Other Info</div>
+          </dt>
         </TD>
 
         <TD>
@@ -170,17 +162,11 @@
       </TR>
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Speaker 3</FONT></FONT></DT><br />
-
-
-            <DT>
-              <FONT FACE="Arial,Helvetica">
-                <FONT COLOR="#333366">
-                  Title&nbsp;<BR><br />
-                  Other Info
-                </FONT>
-              </FONT>
-            </DT>
+          <dt>
+            <div class="text-right row-spacer">Speaker 3</div>
+            <div class="text-right row-spacer">Title</div>
+            <div class="text-right row-spacer">Other Info</div>
+          </dt>
 
         </TD>
 
@@ -198,7 +184,11 @@
 
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Evaluators</FONT></FONT></DT>
+          <dt>
+            <div class="text-right row-spacer">Evaluator 1</div>
+            <div class="text-right row-spacer">Evaluator 2</div>
+            <div class="text-right row-spacer">Evaluator 3</div>
+          </dt>
         </TD>
 
         <TD>
@@ -212,7 +202,10 @@
 
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Table Topics Master</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">Table Topics Master</FONT></FONT>
+</div>
+          </DT>
         </TD>
 
         <TD>
@@ -222,7 +215,10 @@
                               
       <TR>
         <TD>
-          <DT><FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">General Evaluator</FONT></FONT></DT>
+          <DT><div class="text-right row-spacer">
+  <FONT FACE="Arial,Helvetica"><FONT COLOR="#333366">General Evaluator</FONT></FONT>
+            </div>
+</DT>
         </TD>
         <TD>
           <input [(ngModel)]="currAgendaInfo[22].text" name="General Evaluator" class="form-control" id="inputGenEval" SIZE=30 placeholder="Gen Eval">
