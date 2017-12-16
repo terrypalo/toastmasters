@@ -12,6 +12,7 @@ import { UpdateAvailabilityComponent } from './components/update-availability/up
 import { UpdateDutyDesiresComponent } from './components/update-duty-desires/update-duty-desires.component';
 import { UpdateAgendaComponent } from './components/update-agenda/update-agenda.component';
 import { UpdateMembersComponent } from './components/update-members/update-members.component';
+import { AddordeleteComponent } from "./components/add-or-delete-a-member/add-or-delete-a-member.component"
 import { AboutComponent } from './components/about/about.component';
 import { FormsModule } from '@angular/forms';
 
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     UpdateDutyDesiresComponent,
     UpdateAgendaComponent,
     UpdateMembersComponent,
+    AddordeleteComponent,
     AboutComponent
   ],
   imports: [
