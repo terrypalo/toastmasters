@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ToastmastersService {
-  private apiUrl = 'http://terrylp.ics415.com/toastmasters/api/';
+  private apiUrl = 'http://terrylp.ics415.com/toastmasters/api2/';
 
   constructor(private http: Http) { }
 
