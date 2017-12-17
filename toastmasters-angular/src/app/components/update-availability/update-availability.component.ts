@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { ToastmastersService } from '../../services/toastmasters.service';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -8,30 +9,72 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./update-availability.component.css']
 })
 export class UpdateAvailabilityComponent implements OnInit {
-  private apiUrl = 'http://terrylp.ics415.com/toastmasters/api/';
-  title = 'app works!';
-  asOfDate = 'As of October 10, 2017, 2:42 PM';
+  asOfDate = null;
   months: any[] = [];
   monthName: string[] = ['January', 'February', 'March', 'April', 'May',
   'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  user: any = null;
+  selectedDates: any[] = [];
+  loading = true;
+  loggedOut = false;
+  oldMemberInfo = null;
+  currMemberInfo = null;
 
-  constructor(private http: Http) {
-    console.log('Constructor');
+  constructor(private http: Http, private tmService: ToastmastersService) {
   }
 
   ngOnInit() {
-    console.log('ngOnInit');
     this.constructMonths();
+    this.setAsOfDate();
+    if (localStorage.getItem('user') != null) {
+      this.user = JSON.parse(localStorage.getItem('user'));
+    }
+    this.tmService.getMemberInfo().subscribe(
+      data => {
+        if (data['message'].includes('Member TID not specified')) {
+          this.loggedOut = true;
+          if (localStorage.getItem('user') != null) {
+              localStorage.removeItem('user');
+          }
+        } else {
+          this.oldMemberInfo = Object.assign({}, data['member']);
+          this.currMemberInfo = Object.assign({}, data['member']);
+          this.loading = false;
+        }
+      });
+  }
+
+  setAsOfDate() {
+    const dt = new Date();
+    const currMonth = dt.getMonth();
+    let currDate = dt.getDate().toString();
+    if (dt.getDate() < 10) {
+      currDate = '0' + currDate;
+    }
+    let currHour = dt.getHours();
+    let amPm = 'AM';
+    if (currHour === 0) {
+      currHour = 12;
+    }else if (currHour === 12) {
+      amPm = 'PM';
+    }else if (currHour > 12) {
+      currHour -= 12;
+      amPm = 'PM';
+    }
+    const currMin = dt.getMinutes();
+    const dtStr = 'As of ' + this.monthName[currMonth] + ' ' + currDate + ', ' +
+     dt.getFullYear().toString() + ', ' + currHour.toString() + ':' + currMin.toString() + ' ' + amPm;
+    this.asOfDate = dtStr;
   }
 
   constructMonths() {
-      let dt = new Date();
-      for (var a = 0; a < 10; a++) {
-        let currentMonth = dt.getMonth();
-        let currentYear = dt.getFullYear();
-        let mName = this.monthName[currentMonth];
-        let mt = {month: currentMonth, year: currentYear, monthName: mName, days: []};
-        for (var b = 1; b <= 30; b++) {
+      const dt = new Date();
+      for (let a = 0; a < 10; a++) {
+        const currentMonth = dt.getMonth();
+        const currentYear = dt.getFullYear();
+        const mName = this.monthName[currentMonth];
+        const mt = {month: currentMonth, year: currentYear, monthName: mName, days: []};
+        for (let b = 1; b <= 30; b++) {
           dt.setDate(b);
           if (dt.getDay() === 3) {
               let d = dt.getDate().toString();
@@ -42,7 +85,7 @@ export class UpdateAvailabilityComponent implements OnInit {
           }
         }
         if (mt.days.length < 5) {
-          for (var c = mt.days.length; c < 5; c++) {
+          for (let c = mt.days.length; c < 5; c++) {
             mt.days.push({day: '', selected: false});
           }
         }
@@ -53,20 +96,24 @@ export class UpdateAvailabilityComponent implements OnInit {
   }
 
   makeChangesClick() {
-      console.log('makeChangesClick');
-      for (var a = 0; a < this.months.length; a++) {
-          let mt = this.months[a];
-          for (var b = 0; b < mt.days.length; b++) {
+      let tid = '';
+      tid = this.user.TID;
+      for (let a = 0; a < this.months.length; a++) {
+          const mt = this.months[a];
+          for (let b = 0; b < mt.days.length; b++) {
+              const dtStr = mt.year + '-' + (mt.month + 1) + '-' + mt.days[b].day;
               if (mt.days[b].selected) {
-                  console.log('Selected: ' + mt.days[b].day + '-' + mt.monthName + ' ' + mt.year);
+                  this.doUpdateAvailability(dtStr, '1', tid);
+              }else {
+                this.doUpdateAvailability(dtStr, '1', '');
               }
           }
       }
-      this.doUpdateAvailability();
+      alert('Availability Updated');
+      this.startOverClick();
   }
 
   startOverClick() {
-      console.log('startOverClick');
       for (let a = 0; a < this.months.length; a++) {
           const mt = this.months[a];
           for (let b = 0; b < mt.days.length; b++) {
@@ -76,31 +123,17 @@ export class UpdateAvailabilityComponent implements OnInit {
   }
 
   availSuccess(res: Response) {
-    console.log('availSuccess');
-    console.log(res.text());
+    // console.log('availSuccess');
   }
 
   availFailure(err: any) {
-    console.log('availFailure');
+    // console.log('availFailure');
   }
 
-  doUpdateAvailability() {
-    console.log('doUpdateAvailability');
+  doUpdateAvailability(field, fieldOld, fieldNew) {
     const that = this;
-    this.updateAvailability('a', 'b', 'c', 'd').subscribe(
+    this.tmService.updateAvailability('update', field, fieldOld, fieldNew).subscribe(
       res => that.availSuccess(res), err => that.availFailure(err)
     );
-  }
-
-  updateAvailability(func, field, fieldOld, fieldNew) {
-      const query = '?function=' + func +
-              '&field=' + field +
-              '&fieldOld=' + fieldOld +
-              '&fieldNew=' + fieldNew;
-
-      console.log('query: ' + query);
-
-      return this.http.get(this.apiUrl + 'update_avail_api.php' + query, {withCredentials: true});
-      // .map((res: Response) => res.json());
   }
 }
