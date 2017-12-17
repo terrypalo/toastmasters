@@ -20,34 +20,11 @@ export class SelectAgendaComponent implements OnInit {
     quote = null;
     author = null;
     constructor(private tmService: ToastmastersService, public http: Http) {
-        /*
-        //this.tmService.getMemberInfo().subscribe(
-        this.http.get(
-        //this.http.get('https://terrylp.ics415.com/toastmasters/api/update_member_api.php').map(res => res.json()).subscribe(data => {
-        'http://ics415.com/toastmasters/members/apis/update_member_api.php'
-        //'https://terrylp.ics415.com/toastmasters/api/update_member_api.php'
-        //'http://quotes.rest/qod.json'
-        //'https://terrylp.ics415.com/toastmasters/api/update_agenda2_api.php?'
-        //'https://terrylp.ics415.com/toastmasters/api/update_agenda2_api.php?meetingDate=2017-10-25'
-        //'http://ics415.com/toastmasters/members/apis/update_agenda2_api.php?meetingDate=2017-10-25'
-        ).map(res => res.json()).subscribe(data => {
-            this.now = data['now'];
-            this.message = data['message'];
 
-            //this.quote = data.contents.quotes[0].quote;
-            //this.author = data.contents.quotes[0].author;
-        });*/
     }
 
     ngOnInit() {
-        /*
-        this.tmService.getNames().subscribe(
-            data => { this.people = data['names']; });
-        */
-    }
-    testval() {
-        var input = (<HTMLInputElement>document.getElementById("date")).value;
-        console.log(input);
+
     }
 
     navdate() {
