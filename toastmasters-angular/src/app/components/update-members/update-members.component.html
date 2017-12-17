@@ -1,6 +1,165 @@
 <div class="container text-center" id="update-members-form">
-  <p>
 
-    update-members-form works!
-  </p>
+  <form>
+    <h3 style="color:rgb(9, 9, 126)" align=center>
+      Add A New Toastmaster
+    </h3>
+
+    <table align=center border=1 cellpadding=5>
+      <tr align=left>
+        <td>
+          Name
+        </td>
+        <td>
+          <label>First:
+            <input class="form-control"> </label>
+          <label>Last:
+            <input class="form-control">
+          </label>
+
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Key and Level
+        </td>
+        <td>
+          <label>Key:
+            <input size=5 class="form-control">
+          </label>
+          <label>Title:
+            <input size=10 class="form-control"> </label>
+          <label># Speeches:
+            <input size=5 class="form-control">
+          </label>
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Phone
+        </td>
+        <td>
+          <label>Home:
+            <input size=10 class="form-control">
+          </label>
+          <label>Work:
+            <input size=10 class="form-control">
+          </label>
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Email
+        </td>
+        <td>
+          <input size=35 class="form-control">
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Street Address
+        </td>
+        <td>
+          <label> Address Line 1:
+            <input size=35 class="form-control">
+          </label>
+          <br/>
+          <label> Address Line 2:
+            <input size=35 class="form-control">
+          </label>
+
+          <br/>
+          <label>City:
+            <input name="address" id="city" class="form-control">
+          </label>
+          <label>State:
+            <input name="address" id="state" size=5 class="form-control">
+          </label>
+          <label>Zip:
+            <input name="address" id="zip" size=5 class="form-control">
+          </label>
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Comments
+        </td>
+        <td>
+          <textarea name="Text1" cols="70" rows="5" class="form-control"></textarea>
+
+        </td>
+      </tr>
+      <tr align=left>
+        <td>
+          Password
+        </td>
+        <td>
+          <label> Enter once:
+            <input type="password" class="form-control"> </label>
+          <label>
+            Enter again:
+            <input type="password" class="form-control"> </label>
+        </td>
+      </tr>
+      <tr align=center>
+        <td colspan="2">
+          <button class="btn btn-primary">Add Member</button>
+          <button class="btn btn-primary">Start Over</button>
+        </td>
+
+      </tr>
+    </table>
+  </form>
+  <br/>
+
+  <form>
+    <h3 style="color:rgb(9, 9, 126)" align=center>
+      Deactivate a Toastmaster
+    </h3>
+    <table align=center border=1 cellpadding=5>
+      <tr>
+        <td style="width: 70%">
+          <label>First select the record:
+            <br/>
+            <select class="form-control">
+              <option value="" disabled selected>-- Select Record --</option>
+            </select>
+
+          </label>
+        </td>
+        <td>
+          <label>Then click here:
+            <br/>
+            <button class="btn btn-danger ">Deactivate</button>
+          </label>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <br/>
+
+  <form>
+    <h3 style="color:rgb(9, 9, 126)" align=center>
+      Delete a Toastmaster Database Record
+    </h3>
+    <table align=center border=1 cellpadding=5>
+      <tr>
+        <td style="width: 70%">
+          <label>First select the record:
+            <br/>
+            <select class="form-control">
+              <option value="" disabled selected>-- Select Record --</option>
+            </select>
+          </label>
+        </td>
+        <td>
+          <label>Then click here:
+            <br/>
+            <button class="btn btn-danger">Delete</button>
+          </label>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <br/>
 </div>
