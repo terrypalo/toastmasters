@@ -1,3 +1,67 @@
 #update-availability-form {
   padding-top: 5rem;
 }
+
+.update-avail-heading {
+  color:#1d4a82;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 5rem;
+}
+
+.update-avail-name {
+  text-align: center;
+  font-size: 1.2em;
+  color:#ca426f;
+  margin-top: 15px;
+}
+
+.update-avail-asof {
+  color:#1d4a82;
+  font-size: 1.3em;
+  text-align: center;
+  font-weight: normal;
+  margin-top: 15px;
+}
+
+.update-avail-check-heading {
+  text-align: center;
+  font-size: 1.2em;
+  color:#ca426f;
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background-color:#009900;
+  color:#FFFFFF;
+  border-width: 0px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,th,td {
+  border: 1px solid #dedfde;
+}
+
+th,td {
+  padding: 5px;
+}
+
+th {
+  height: 30px;
+  background-color:#01af22;
+  color:#FFFFFF;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+td {
+  color:#767676;
+}
