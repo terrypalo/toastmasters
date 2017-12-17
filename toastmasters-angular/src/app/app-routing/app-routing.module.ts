@@ -10,6 +10,7 @@ import { UpdateDutyDesiresComponent } from '../components/update-duty-desires/up
 import { UpdateAgendaComponent } from '../components/update-agenda/update-agenda.component';
 import { SelectAgendaComponent } from '../components/select-agenda/select-agenda.component';
 import { UpdateMembersComponent } from '../components/update-members/update-members.component';
+import { ForgotPasswordComponent } from '../components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,10 @@ const routes: Routes = [
     {
         path: 'maintain-members',
         component: UpdateMembersComponent
+    },
+    {
+        path: 'forgot-password',
+        component: ForgotPasswordComponent
     }
 
 ];
