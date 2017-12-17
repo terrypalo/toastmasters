@@ -51,4 +51,56 @@ export class UpdateAvailabilityComponent implements OnInit {
         dt.setMonth(currentMonth + 1);
       }
   }
+
+  makeChangesClick() {
+      console.log('makeChangesClick');
+      for (var a = 0; a < this.months.length; a++) {
+          let mt = this.months[a];
+          for (var b = 0; b < mt.days.length; b++) {
+              if (mt.days[b].selected) {
+                  console.log('Selected: ' + mt.days[b].day + '-' + mt.monthName + ' ' + mt.year);
+              }
+          }
+      }
+      this.doUpdateAvailability();
+  }
+
+  startOverClick() {
+      console.log('startOverClick');
+      for (let a = 0; a < this.months.length; a++) {
+          const mt = this.months[a];
+          for (let b = 0; b < mt.days.length; b++) {
+              mt.days[b].selected = false;
+          }
+      }
+  }
+
+  availSuccess(res: Response) {
+    console.log('availSuccess');
+    console.log(res.text());
+  }
+
+  availFailure(err: any) {
+    console.log('availFailure');
+  }
+
+  doUpdateAvailability() {
+    console.log('doUpdateAvailability');
+    const that = this;
+    this.updateAvailability('a', 'b', 'c', 'd').subscribe(
+      res => that.availSuccess(res), err => that.availFailure(err)
+    );
+  }
+
+  updateAvailability(func, field, fieldOld, fieldNew) {
+      const query = '?function=' + func +
+              '&field=' + field +
+              '&fieldOld=' + fieldOld +
+              '&fieldNew=' + fieldNew;
+
+      console.log('query: ' + query);
+
+      return this.http.get(this.apiUrl + 'update_avail_api.php' + query, {withCredentials: true});
+      // .map((res: Response) => res.json());
+  }
 }
